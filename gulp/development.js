@@ -7,6 +7,7 @@ const babel  = require('gulp-babel')
 const stylus = require('gulp-stylus')
 
 const del         = require('del')
+const plumber     = require('gulp-plumber')
 const browserSync = require('browser-sync')
 const runSequence = require('run-sequence')
 
@@ -23,6 +24,7 @@ gulp.task('pug', () => {
   const {src, dev} = config.pug
 
   return gulp.src(src)
+    .pipe(plumber())
     .pipe(pug())
     .pipe(gulp.dest(dev))
 })
@@ -32,6 +34,7 @@ gulp.task('stylus', () => {
   const {src, dev} = config.stylus
 
   return gulp.src(src)
+    .pipe(plumber())
     .pipe(stylus())
     .pipe(gulp.dest(dev))
 })
@@ -41,6 +44,7 @@ gulp.task('scripts', () => {
   const {src, dev} = config.scripts
 
   return gulp.src(src)
+    .pipe(plumber())
     .pipe(babel())
     .pipe(gulp.dest(dev))
 })
@@ -50,6 +54,7 @@ gulp.task('images', () => {
   const {src, dev} = config.images
 
   return gulp.src(src)
+    .pipe(plumber())
     .pipe(gulp.dest(dev))
 })
 
@@ -58,6 +63,7 @@ gulp.task('lib', () => {
   const {src, dev} = config.lib
 
   return gulp.src(src)
+    .pipe(plumber())
     .pipe(gulp.dest(dev))
 })
 
