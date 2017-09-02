@@ -1,6 +1,16 @@
 extends _layout
 
+prepend head
+  - let title = 'home page'
+
+append styles
+  link(rel="stylesheet" href="stylesheets/style.css")
+
+append scripts
+  script(type="javascript" src="javascripts/script.js")
+
 block body
-  h1 hello w
-  append scripts
-    script(src="javascripts/script.js")
+  h1= title
+  p hello web!
+  h3 hi Google!
+  img(src="images/google.png")

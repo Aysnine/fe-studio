@@ -8,6 +8,7 @@ const stylus = require('gulp-stylus')
 
 const del         = require('del')
 const browserSync = require('browser-sync')
+const runSequence = require('run-sequence')
 
 // Global Variables & Objects
 
@@ -15,7 +16,7 @@ const config = require('./config.js')
 
 const {srcAssets, devAssets} = config.base
 
-// Tasks
+// Tasks for base
 
 gulp.task('pug', () => {
 
@@ -44,9 +45,33 @@ gulp.task('scripts', () => {
     .pipe(gulp.dest(dev))
 })
 
-gulp.task('clean', () => { del([devAssets + '/*']) })
+gulp.task('images', () => {
 
-gulp.task('build', ['clean', 'pug', 'stylus', 'scripts'])
+  const {src, dev} = config.images
+
+  return gulp.src(src)
+    .pipe(gulp.dest(dev))
+})
+
+gulp.task('lib', () => {
+
+  const {src, dev} = config.lib
+
+  return gulp.src(src)
+    .pipe(gulp.dest(dev))
+})
+
+// Tasks for dev
+
+gulp.task('clean', () => { return del([devAssets + '/*']) })
+
+gulp.task('build', (cb) => {
+  runSequence(
+    'clean',
+    ['stylus', 'scripts', 'images', 'lib'],
+    'pug',
+    cb)
+})
 
 gulp.task('bs', ['build'], () => {
   browserSync.init({
@@ -59,10 +84,11 @@ gulp.task('bs', ['build'], () => {
 
 gulp.task('watch', ['bs'], () => {
 
-  const {pug, stylus, scripts, images} = config.watch
+  const {pug, stylus, scripts, images, lib} = config.watch
 
   gulp.watch(pug, ['pug'])
   gulp.watch(stylus, ['stylus'])
   gulp.watch(scripts, ['scripts'])
   gulp.watch(images, ['images'])
+  gulp.watch(lib, ['lib'])
 })

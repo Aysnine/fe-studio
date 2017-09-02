@@ -1,7 +1,8 @@
 
 const srcAssets  = 'src/assets',
       devAssets  = 'dev',
-      distAssets = 'dist'
+      distAssets = 'dist',
+      libDir     = 'src/lib'
 
 module.exports = {
   base: {
@@ -27,10 +28,21 @@ module.exports = {
       presets: ['env']
     }
   },
+  images: {
+    src: srcAssets + '/images/**/*.{jpg,png,svg,gif}',
+    dev: devAssets + '/images',
+    dist: distAssets + '/images'
+  },
+  lib: {
+    src: libDir + '/**/*',
+    dev: devAssets + '/lib',
+    dist: distAssets + '/lib'
+  },
   watch: {
     pug:     srcAssets + '/pug/**/*.pug',
     stylus:  srcAssets + '/stylus/**/*.styl',
     scripts: srcAssets + '/scripts/**/*.js',
-    images:  srcAssets + '/images/**/*.{jpg,png,svg,gif}'
+    images:  srcAssets + '/images/**/*.{jpg,png,svg,gif}',
+    lib:     libDir + '/**/*'
   }
 }
