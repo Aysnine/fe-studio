@@ -3,6 +3,8 @@ const gulp = require('gulp')
 const pug    = require('gulp-pug')
 const babel  = require('gulp-babel')
 const stylus = require('gulp-stylus')
+  const nib  = require('nib')
+  const jeet = require('jeet')
 
 // const gulpif  = require('gulp-if')
 const watch   = require('gulp-watch')
@@ -36,7 +38,7 @@ gulp.task('stylus', () => {
 
   return gulp.src(src)
     .pipe(plumber())
-    .pipe(stylus())
+    .pipe(stylus({/*'include css': true,*/ use: [nib(), jeet()]}))
     .pipe(gulp.dest(dev))
 })
 

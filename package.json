@@ -4,7 +4,7 @@
   "description": "前端开发环境配置",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "gulp watch"
   },
   "repository": {
     "type": "git",
@@ -27,6 +27,8 @@
     "gulp-pug": "^3.3.0",
     "gulp-stylus": "^2.6.0",
     "gulp-watch": "^4.3.11",
+    "jeet": "^7.1.0",
+    "nib": "^1.1.2",
     "require-dir": "^0.3.2",
     "run-sequence": "^2.1.0"
   }
