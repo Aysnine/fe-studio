@@ -1,6 +1,14 @@
+block variables
 doctype html
 html
   head
     include partial/head
   body
-    block body
+    .wrap
+      header
+        include partial/header
+      .content
+        block content
+      footer
+        block footer
+    block scripts

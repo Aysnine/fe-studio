@@ -1,20 +1,118 @@
 @import 'nib'
-
 @import '_variables'
-
 @import 'mixins/mixin'
-@import 'mixins/grid'
+@import 'partial/header'
 
-global-reset()
+.shader
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.05)
+.de-text
+  color: #aaa
+.ma-text
+  color: #565d64
+
+.pure-menu-link
+.pure-button
+.de-button
+  background: transparent
+  &:active, &:hover
+    box-shadow: none
+    background: rgba(0,0,0,.05)
+    transition: background .3s
 
 body
-  opacity: 0.5
-  color: $color-primary
-  background: #eee
-  box-shadow: 1px 2px 3px
-  
-  h1
-    background: red
-    for i in 1..4
-      @media (min-width: 2**(i+7)px)
-        width: 100px*i
+  font-size: 16px
+  font-size: 1em
+  background: #f5f8fe
+
+.wrap-body
+  padding: 5.12em 1em 3.14em
+  max-width: 52em
+  margin: auto
+  .body
+    .wrap-main-panel
+      .wrap
+        padding: .5em .5em
+        .main-panel
+          background: #fff
+
+.panel-user
+  .info
+    .header
+      padding: 2em 0 .5em
+      height: 6em
+      text-align: center
+      img
+        height: 100%
+    .name
+      padding: .5em
+      font-size: 1em
+      height: 1em
+      text-align: center
+      font-family: fantasy
+  .operation
+    padding: 0 .5em
+    .item
+      padding: .5em 0
+      text-align: center
+      a
+        width: 100%
+        max-width: 5.5em
+        img
+          height: 2em
+        span
+          display: block
+          font-size: .5em
+          
+.panel-total
+  text-align: center
+  padding: .5em
+  .total-des
+    padding: 1em 1em .5em
+    text-align: center
+    span
+      font-size: .5em
+    .num, .perc
+      font-size: 1.4em
+      color: #718fad
+      text-shadow: 1px 1px #cad2d3
+  .progress
+    margin: auto
+    width: 60%
+    padding: 1px
+    border: 2px solid #797979
+    border-radius: 1em
+    &-inner
+      height: .5em
+      border-radius: .25em
+      background: #fed23a
+  .total-chart
+    padding-top: .5em
+    height: 10em
+    overflow: hidden
+    #total-chart
+      height: 100%
+      width: 100%
+
+.wrap-sub-panel
+  .wrap
+    padding: .25em
+    .wrap-item
+      padding: .25em
+      .item
+        background: #fff
+    .four
+      .item
+        height: 5.75em
+    .three
+      .item
+        height: 3.83em
+    .wrap-title
+      padding-top: 1em
+      padding-bottom: .5em
+      .title
+        height: 1.75em
+        .main
+          font-size: 1em
+          font-weight: bold
+          font-family: "Microsoft YaHei"
+

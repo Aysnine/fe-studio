@@ -1,132 +1,163 @@
-body {
-  width: 100%;
+.home-menu {
+  z-index: 99999;
+  background: #fff;
+  padding: 0.5em;
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.05);
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.05);
 }
-body:before,
-body:after {
-  content: "";
-  display: table;
+.home-menu .pure-menu-heading {
+  font-family: fantasy;
+  float: left;
 }
-body:after {
-  clear: both;
+.home-menu .menu-list {
+  float: right;
 }
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  outline: 0;
-  font-weight: inherit;
-  font-style: inherit;
-  font-family: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
+.home-menu .menu-list .pure-menu-link {
+  font-szie: 1em;
+  font-family: fantasy;
+}
+.shader {
+  -webkit-box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.05);
+  box-shadow: 0px 2px 4px 0px rgba(0,0,0,0.05);
+}
+.de-text {
+  color: #aaa;
+}
+.ma-text {
+  color: #565d64;
+}
+.pure-menu-link,
+.pure-button,
+.de-button {
+  background: transparent;
+}
+.pure-menu-link:active,
+.pure-button:active,
+.de-button:active,
+.pure-menu-link:hover,
+.pure-button:hover,
+.de-button:hover {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background: rgba(0,0,0,0.05);
+  -webkit-transition: background 0.3s;
+  -khtml-transition: background 0.3s;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  -ms-transition: background 0.3s;
+  transition: background 0.3s;
 }
 body {
-  line-height: 1;
-  color: #000;
+  font-size: 16px;
+  font-size: 1em;
+  background: #f5f8fe;
+}
+.wrap-body {
+  padding: 5.12em 1em 3.14em;
+  max-width: 52em;
+  margin: auto;
+}
+.wrap-body .body .wrap-main-panel .wrap {
+  padding: 0.5em 0.5em;
+}
+.wrap-body .body .wrap-main-panel .wrap .main-panel {
   background: #fff;
 }
-ol,
-ul {
-  list-style: none;
+.panel-user .info .header {
+  padding: 2em 0 0.5em;
+  height: 6em;
+  text-align: center;
 }
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  vertical-align: middle;
+.panel-user .info .header img {
+  height: 100%;
 }
-caption,
-th,
-td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
+.panel-user .info .name {
+  padding: 0.5em;
+  font-size: 1em;
+  height: 1em;
+  text-align: center;
+  font-family: fantasy;
 }
-a img {
-  border: none;
+.panel-user .operation {
+  padding: 0 0.5em;
 }
-body {
-  opacity: 0.5;
-  color: #00f;
-  background: #eee;
-  -webkit-box-shadow: 1px 2px 3px;
-  box-shadow: 1px 2px 3px;
+.panel-user .operation .item {
+  padding: 0.5em 0;
+  text-align: center;
 }
-body h1 {
-  background: #f00;
+.panel-user .operation .item a {
+  width: 100%;
+  max-width: 5.5em;
 }
-@media (min-width: 256px) {
-  body h1 {
-    width: 100px;
-  }
+.panel-user .operation .item a img {
+  height: 2em;
 }
-@media (min-width: 512px) {
-  body h1 {
-    width: 200px;
-  }
+.panel-user .operation .item a span {
+  display: block;
+  font-size: 0.5em;
 }
-@media (min-width: 1024px) {
-  body h1 {
-    width: 300px;
-  }
+.panel-total {
+  text-align: center;
+  padding: 0.5em;
 }
-@media (min-width: 2048px) {
-  body h1 {
-    width: 400px;
-  }
+.panel-total .total-des {
+  padding: 1em 1em 0.5em;
+  text-align: center;
+}
+.panel-total .total-des span {
+  font-size: 0.5em;
+}
+.panel-total .total-des .num,
+.panel-total .total-des .perc {
+  font-size: 1.4em;
+  color: #718fad;
+  text-shadow: 1px 1px #cad2d3;
+}
+.panel-total .progress {
+  margin: auto;
+  width: 60%;
+  padding: 1px;
+  border: 2px solid #797979;
+  border-radius: 1em;
+}
+.panel-total .progress-inner {
+  height: 0.5em;
+  border-radius: 0.25em;
+  background: #fed23a;
+}
+.panel-total .total-chart {
+  padding-top: 0.5em;
+  height: 10em;
+  overflow: hidden;
+}
+.panel-total .total-chart #total-chart {
+  height: 100%;
+  width: 100%;
+}
+.wrap-sub-panel .wrap {
+  padding: 0.25em;
+}
+.wrap-sub-panel .wrap .wrap-item {
+  padding: 0.25em;
+}
+.wrap-sub-panel .wrap .wrap-item .item {
+  background: #fff;
+}
+.wrap-sub-panel .wrap .four .item {
+  height: 5.75em;
+}
+.wrap-sub-panel .wrap .three .item {
+  height: 3.83em;
+}
+.wrap-sub-panel .wrap .wrap-title {
+  padding-top: 1em;
+  padding-bottom: 0.5em;
+}
+.wrap-sub-panel .wrap .wrap-title .title {
+  height: 1.75em;
+}
+.wrap-sub-panel .wrap .wrap-title .title .main {
+  font-size: 1em;
+  font-weight: bold;
+  font-family: "Microsoft YaHei";
 }

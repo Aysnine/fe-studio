@@ -1,16 +1,109 @@
 extends _layout
 
-prepend head
-  - let title = 'home page'
+block variables
+  include mixins/repeater.pug
+  - 
+    let $site = { name: 'MEMO' }
+    let $page = { title: 'home page' }
+    let $user = {
+      head: 'a00.png',
+      name: 'admin',
+      totalCount: '512',
+      perc: '77%'
+    }
 
 append styles
-  link(rel="stylesheet" href="stylesheets/style.css")
+  +ln-style("lib/purecss/pure-min.css")
+  +ln-style("lib/purecss/grids-responsive-min.css")
+  +ln-style("stylesheets/style.css")
+
+append preScripts
+  +ln-script("javascripts/script.js")
+
+block content
+  .wrap-body
+    .body.pure-g
+      .wrap-main-panel.pure-u-1.pure-u-md-1-2
+        .wrap
+          .main-panel.shader
+
+            .panel-user
+              .info
+                .header
+                  img(src="images/head/"+$user.head)
+                .name.ma-text= $user.name
+              .operation.pure-g
+                .item.pure-u-1-4
+                  a.pure-button
+                    img(src="images/dbl/trophy.png")
+                    span.de-text 成&nbsp;就
+                .item.pure-u-1-4
+                  a.pure-button
+                    img(src="images/dbl/edit.png")
+                    span.de-text 知&nbsp;识
+                .item.pure-u-1-4
+                  a.pure-button
+                    img(src="images/dbl/setting.png")
+                    span.de-text 设&nbsp;置
+                .item.pure-u-1-4
+                  a.pure-button
+                    img(src="images/dbl/search.png")
+                    span.de-text 搜&nbsp;索
+
+      .wrap-main-panel.pure-u-1.pure-u-md-1-2
+        .wrap
+          .main-panel.shader
+
+            .panel-total
+              .total-des.ma-text
+                span 共&nbsp;
+                span.num= $user.totalCount
+                span &nbsp;条知识，
+                span &nbsp;
+                span.perc= $user.perc
+                span &nbsp;已达标
+              .progress
+                .progress-inner(style="width: "+$user.perc)
+              .total-chart
+                canvas#total-chart
+
+      .wrap-sub-panel.pure-u-1.pure-u-md-1-2
+        .wrap
+          .four-panel.pure-g
+            .pure-u-1-1
+              .wrap-item.wrap-title
+                .title
+                  span.main.ma-text 数据统计
+            .pure-u-1-2
+              .wrap-item.four
+                .item.shader 1
+            .pure-u-1-2
+              .wrap-item.four
+                .item.shader 1
+            .pure-u-1-2
+              .wrap-item.four
+                .item.shader 1
+            .pure-u-1-2
+              .wrap-item.four
+                .item.shader 1
+
+      .wrap-sub-panel.pure-u-1.pure-u-md-1-2
+        .wrap
+          .four-panel.pure-g
+            .pure-u-1-1
+              .wrap-item.wrap-title
+                .title
+                  span.main.ma-text 复习计划
+            .pure-u-1-1
+              .wrap-item.three
+                .item.shader 1
+            .pure-u-1-1
+              .wrap-item.three
+                .item.shader 1
+            .pure-u-1-1
+              .wrap-item.three
+                .item.shader 1
 
 append scripts
-  script(type="javascript" src="javascripts/script.js")
-
-block body
-  h1= title
-  p hello web!
-  h3 hi Google!
-  img(src="images/google.png")
+  +ln-script("lib/chartjs/Chart.bundle.min.js")
+  +ln-script("javascripts/index.js")
